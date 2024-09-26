@@ -293,13 +293,13 @@ def run_noninteractive_program(library):
 
 def main():
     try:
-        library = Library.load_from_file('library_data.json')
+        library = Library.load_from_file('ai-development/Exercises/week2/notes_and_data/library_data.json')
         print(f"Bibliotek laddat: {library.name}")
     except FileNotFoundError:
         library = Library("Kungliga Biblioteket")
         print(f"Nytt bibliotek skapat: {library.name}")
 
-    library.load_users_from_file('library_users.txt')
+    library.load_users_from_file('ai-development/Exercises/week2/notes_and_data/library_users.txt')
 
     interactive_program = input("Vill du köra en interaktiv version av programmet (ja/nej)? ")
     if interactive_program.lower() == "ja":
@@ -310,8 +310,8 @@ def main():
         print("Felaktig input. Programmet avslutas.")
 
     # Spara biblioteket till fil
-    library.save_to_file('library_data.json')
-    print("\nBiblioteket har sparats till library_data.json")
+    library.save_to_file('ai-development/Exercises/week2/notes_and_data/library_data.json')
+    print("\nBiblioteket har sparats till ai-development/Exercises/week2/notes_and_data/library_data.json")
 
     print(f"\nTotalt antal böcker skapade: {Book.book_count}")
 
