@@ -53,7 +53,7 @@ Utöka Person-klassen från föregående uppgift:
 3. Skapa en metod `get_hobbies()` som returnerar en sträng med alla hobbies.
 4. Skriv över/overwritea `__str__` metoden för att ge en fin strängrepresentation av objektet, när man till exempel printar ett Person-objekt.
 
-## Uppgift 1
+## Uppgift 3
 
 Skriv en klass `Bankkonto`
 
@@ -61,7 +61,7 @@ Skriv en klass `Bankkonto`
 * Skapa metoder såsom `deposit(amount)` för att lägga till pengar till kontot samt `withdraw(amount)` för att ta ut pengar från kontot. Se också till att saldot ej kan bli negativ!
 * Skapa en metod `display_balance()` för som printar kontots nuvarande saldo.
 
-## Uppgift 2
+## Uppgift 4
 
 Skriv en klass `Matte`
 Den ska ha följande metoder
@@ -74,7 +74,7 @@ Den ska ha följande metoder
 * area_circle(r): returnerar arean av en cirkel
 * circumference(d): returnerar omkretsen av en cirkel
 
-## Uppgift 3: Grundläggande filhantering
+## Uppgift 5: Grundläggande filhantering
 
 Skriv ett program som gör följande:
 
@@ -106,16 +106,16 @@ Lösningsförslag:
         print(file.read())
 ```
 
-## Uppgift 4: Filläsning och ordräkning
+## Uppgift 6: Filläsning och ordräkning
 
 Skapa en textfil (i samma mapp som ditt program). Skriv in eller kopiera in en text av valfri längd.
 Läs in textfilen och använd ett dictionary för att räkna förekomsten av varje ord. Ignorera skiljetecken och konvertera alla ord till lowercase.
 
-## Uppgift 5: Skapa en enkel kontaktbok
+## Uppgift 7: Skapa en enkel kontaktbok
 
 Implementera en klass `ContactBook` som använder ett dictionary för att lagra kontakter. Inkludera metoder för att lägga till, ta bort, uppdatera och visa kontakter.
 
-## Uppgift 6: Skapa en enkel filhanterare
+## Uppgift 8: Skapa en enkel filhanterare
 
 Skriv en klass `FileManager` med följande metoder:
 
@@ -124,7 +124,7 @@ Skriv en klass `FileManager` med följande metoder:
 * `append_file(filename, content)`: Lägger till innehåll i slutet av en befintlig fil.
 * `delete_file(filename)`: Raderar en fil.
 
-## Uppgift 7: Implementera en stack med en klass
+## Uppgift 9: Implementera en stack med en klass
 
 Skapa en klass `Stack` som implementerar en stack (sista in, första ut) datastruktur med metoderna:
 
@@ -133,7 +133,7 @@ Skapa en klass `Stack` som implementerar en stack (sista in, första ut) datastr
 * `peek()`: Returnerar det översta elementet utan att ta bort det.
 * `is_empty()`: Returnerar True om stacken är tom, annars False.
 
-## Uppgift 8: Skapa en enkel todo-lista
+## Uppgift 10: Skapa en enkel todo-lista
 
 Implementera en klass `TodoList` med metoder för att:
 
@@ -142,7 +142,7 @@ Implementera en klass `TodoList` med metoder för att:
 * Visa alla uppgifter
 * Visa endast oavslutade uppgifter
 
-## Uppgift 9: Intro till Arv och polymorfism
+## Uppgift 11: Intro till Arv och polymorfism
 
 Skapa en hierarki av djurklasser:
 
@@ -151,7 +151,7 @@ Skapa en hierarki av djurklasser:
 3. Överskugga `make_sound()` metoden i varje subklass för att returnera djurets specifika ljud.
 4. Skapa en funktion `animal_chorus(animals)` som tar en lista av djur och låter alla göra sitt ljud.
 
-## Uppgift 10: Arvs och polyformism: Klass och subklasser för geometriska former (med kod-skelett/scaffolding)
+## Uppgift 12: Arvs och polyformism: Klass och subklasser för geometriska former (med kod-skelett/scaffolding)
 
 Här är en början på en klass för geometriska former. Komplettera klassen med metoder och funktionalitet enligt kommentarerna:
 
@@ -189,7 +189,7 @@ class Circle(GeometricShape):
 # Skapa några instanser av Rectangle och Circle och testa dina metoder
 ```
 
-## Uppgift 11: Enkla list comprehensions
+## Uppgift 13: Enkla list comprehensions
 
 Öva på list comprehensions med följande uppgifter.
 
@@ -214,7 +214,7 @@ sentence = "Python är ett kraftfullt programmeringsspråk"
 word_lengths = [len(word) for word in sentence.split()]
 ```
 
-## Uppgift 12: Intro till funktionell programmering
+## Uppgift 14: Intro till funktionell programmering
 
 Läs på lite om map() och filter(), gör sedan följande uppgifter:
 
@@ -238,21 +238,21 @@ def is_even(x):
 even_numbers = list(filter(is_even, numbers))
 ```
 
-## Uppgift 13: Funktionell programmering - Map och Filter
+## Uppgift 15: Funktionell programmering - Map och Filter
 
 Använd `map()` och `filter()` för att:
 
 1. Skapa en lista med kvadrater av alla jämna tal i en given lista.
 2. Filtrera ut alla primtal från en lista med tal.
 
-## Uppgift 14: Reduce-funktion
+## Uppgift 16: Reduce-funktion
 
 Importera och använd `functools.reduce()` för att:
 
 1. Beräkna produkten av alla tal i en lista.
 2. Hitta det största talet i en lista.
 
-## Uppgift 15: Enkla lambda-funktioner
+## Uppgift 17: Enkla lambda-funktioner
 
 Vi introducerar lambda-funktioner, så kallade "anonyma funktioner" med några enkla exempel:
 
@@ -262,7 +262,7 @@ Vi introducerar lambda-funktioner, så kallade "anonyma funktioner" med några e
 
 Ta reda på och förklara hur lambda-funktioner skiljer sig från vanliga funktioner och när de är användbara.
 
-## Uppgift 16: List comprehensions vs. for-loopar
+## Uppgift 18: List comprehensions vs. for-loopar
 
 Skriv list comprehensions för att:
 
@@ -271,9 +271,9 @@ Skriv list comprehensions för att:
 
 Skriv sedan två for-loopar som gör samma sak!
 
-## Uppgift 17: Introduktion till Exception handling (undantagshantering)
+## Uppgift 19: Introduktion till Exception handling (undantagshantering)
 
-Vi villa bygga våra program så att kan hantera olika situationer, till exempel när vi får fel typ av input från användaren.
+Vi villa bygga våra program så att de kan hantera olika situationer, till exempel när vi får fel typ av input från användaren.
 Låt säga att du har ett program som tar in två heltal från användaren och utför en division på dessa två tal,
 då måste du se till att ditt program kan hantera när täljaren är 0. Vi vill aldrig ha division med 0.
 Vi hanterar dessa undantagsfall, Exceptions med `try`- och `except`-satser i vår kod. I andra programmeringsspråk ser man `catch` istället för `try`.
@@ -288,7 +288,7 @@ Skriv ett program som demonstrerar grundläggande undantagshantering:
 3. Hantera `ZeroDivisionError` om användaren försöker dividera med noll. (`except`)
 4. Hantera `ValueError` om användaren matar in något som inte är ett tal. (`except`)
 
-## Uppgift 18: Intro Matplotlib - Visualisering
+## Uppgift 20: Intro Matplotlib - Visualisering
 
 Skapa ett linjediagram som visar temperaturdata för en vecka.
 Som "data" räcker det t.ex. att skapa en lista med sju floats, en för varje dags medeltemperatur. ex: [15.5, 16.0, 14.6, 11.9, 15.3, 16.2, 15.7]
@@ -298,7 +298,7 @@ Använd matplotlib för att:
 2. Lägga till en titel och etiketter för x- och y-axlarna.
 3. Anpassa linjefärg och stil.
 
-## Uppgift 19: Enkel dataanalys med Pandas
+## Uppgift 21: Enkel dataanalys med Pandas
 
 I denna uppgift kan ni använda CSV-filen `sales_data.csv` som finns här i repot.
 Skapa ett program som använder Pandas för att analysera en CSV-fil med försäljningsdata:
@@ -317,7 +317,7 @@ Om du vill:
 
 Använd klasser för att strukturera koden och inkludera felhantering för filoperationer.
 
-## Uppgift 20: Intro Numpy - Matrisoperationer
+## Uppgift 22: Intro Numpy - Matrisoperationer
 
 Använd numpy för att:
 
@@ -325,7 +325,7 @@ Använd numpy för att:
 2. Beräkna produkten av dessa matriser.
 3. Beräkna determinanten för den resulterande matrisen.
 
-## Uppgift 21: Medelsvår - Skapa en egen iterator
+## Uppgift 23: Medelsvår - Skapa en egen iterator
 
 Implementera en klass `FibonacciIterator` som genererar Fibonacci-sekvensen:
 
@@ -335,7 +335,7 @@ Implementera en klass `FibonacciIterator` som genererar Fibonacci-sekvensen:
 
 Detta introducerar konceptet med iteratorer och generatorer på ett praktiskt sätt.
 
-## Uppgift 22: Intro decorators
+## Uppgift 24: Intro decorators
 
 Detta ger en kort introduktion till dekoratorer och deras användning.
 Skapa en enkel decorator `timer` som mäter exekveringstiden för en funktion:
@@ -345,11 +345,11 @@ Skapa en enkel decorator `timer` som mäter exekveringstiden för en funktion:
 3. Applicera dekoratorn på några funktioner med olika exekveringstider.
 4. Forska lite på nätet hur dekoratorer fungerar och deras användningsområden.
 
-## Uppgift 23: Generators
+## Uppgift 25: Generators
 
 Implementera en generator som producerar Fibonacci-sekvensen upp till ett givet antal termer.
 
-## Uppgift 24: Avancerad - Textanalysverktyg
+## Uppgift 26: Avancerad - Textanalysverktyg
 
 Skapa ett textanalysverktyg som kombinerar filhantering, OOP, och funktionell programmering. Det ska kunna:
 
