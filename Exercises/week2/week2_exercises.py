@@ -658,7 +658,7 @@ def quick_function():
 slow_function()
 quick_function()
 '''
-
+'''
 # Exercise 25
 def fibonacci_generator(n):
     a = 0
@@ -675,7 +675,7 @@ fib_gen = fibonacci_generator(num_terms)
 print("Fibonacci sequence:")
 for number in fib_gen:
     print(number)
-
+'''
 '''
 # Exercise 26
 class TextAnalyzer:
