@@ -10,7 +10,7 @@ print(f"The length of the string is {len(string1)} characters.")
 '''
 
 # 2. Skriv ett program som skriver ut frekvensen av tecken i en given sträng.
-'''
+
 def count_characters(s):
     character_counts = {}
     for char in s:
@@ -23,7 +23,7 @@ def count_characters(s):
 string2 = input("Enter any text: ")
 character_counts = count_characters(string2)
 print(character_counts)
-'''
+
 
 # 3. Skriv ett program som för en given sträng skriver ut de två första och de två sista tecknen i strängen (på valfritt format)
 '''

@@ -27,6 +27,6 @@ df.loc[np.random.choice(df.index, 50), 'Salary'] = np.nan
 df.loc[np.random.choice(df.index, 50), 'Performance_Score'] = np.nan
 
 # Save to CSV
-df.to_csv('sample_data0.csv', index=False)
+df.to_csv('ai-development/Exercises/week3/sample_data0.csv', index=False)
 
 print("sample_data0.csv has been generated successfully.")

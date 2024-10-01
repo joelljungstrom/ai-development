@@ -12,7 +12,7 @@ print("Basic DataFrame:")
 print(df)
 
 # Reading CSV file
-csv_df = pd.read_csv('sample_data0.csv')
+csv_df = pd.read_csv('ai-development/Exercises/week3/sample_data0.csv')
 print("\nFirst 5 rows of CSV data:")
 print(csv_df.head())
 
