@@ -24,10 +24,10 @@ def generate_word(choice):
         random_word_response = ["gin", "vodka", "beer", "wine", "amarula", "tequila", "snaps", "champagne", "cava", "prosecco"]
         random_word = random.choice(random_word_response)
     elif choice == "5":
-        try:
+        try: # try the api to generate a random difficult word
             random_word_response = requests.get("https://random-word-api.herokuapp.com/word")
             random_word = random_word_response.json()[0]
-        except:
+        except: # if api fails, load random difficult word instead
             random_word_response = ["aberration", "cacophony", "ephemeral", "incontrovertible", "lugubrious", "nefarious", "obfuscate", "recalcitrant", "sycophant", "vitriolic"]
             random_word = random.choice(random_word_response)
     else:
@@ -73,24 +73,34 @@ def display_made_guesses(guessed_letters, guesses_remaining, correct_letters):
     print("___________________________________________________________________________")
     
 def play_hangman():
-    choice = hangman_introduction()
-    random_word = generate_word(choice)
+    while True: 
+        choice = hangman_introduction()
+        random_word = generate_word(choice)
     
-    if random_word is None:  # Check if generate_word returned None
-        return
+        if random_word is not None:
+            break
+        else:
+            print("Please enter a valid choice (1-5).")
 
-    word_length = len(random_word)
-    correct_letters = set(random_word)
-    occurrence = count_characters(random_word)
+    word_length = len(random_word) # length of word as a hint
+    correct_letters = set(random_word) # create a list of correct letters in the word
+    occurrence = count_characters(random_word) # count number of occurrences of correct letter to provide a hint to user
     guessed_letters = []
     correct_guesses = []
     guesses_remaining = 10
 
-    ready_to_play = input("Ready to play? (y/n)\n")
-    if ready_to_play == "y":
+    while True:
+        ready_to_play = input("Ready to play? (y/n)\n")
+        if ready_to_play.lower() in ("y", "yes", "1", "n", "0", "no"):
+            break
+        else:
+            print("Please enter a valid response (y/n).")
+
+    if ready_to_play.lower() in ("y", "yes", "1"):
         print(f"Great! As a first clue, the length of the word I'm thinking about is... {word_length} letters. What's your first guess?")
         while guesses_remaining > 0:
-            display_made_guesses(guessed_letters, guesses_remaining, correct_guesses)
+            if guesses_remaining < 10:
+                display_made_guesses(guessed_letters, guesses_remaining, correct_guesses) # skip displaying previous guesses if it's the first guess
 
             guess = make_guess()
             if guess is None:
@@ -109,12 +119,22 @@ def play_hangman():
                 guesses_remaining -= 1
             
             if all(letter in guessed_letters for letter in correct_letters):
-                print(f"Congratulations... You've beaten the machine. The correct word was {random_word}.")
+                print(f"\nCongratulations... You've beaten the machine. The correct word was {random_word}.")
+                play_again = input("\nPlay again and try another category? (y/n)\n")
+                if play_again.lower() in ("y", "yes", "1"):
+                    play_hangman()
+                else:
+                    print("Come again.")
                 break
         else:
-            print(f"How does it feel to loose against a machine? The word I was thinking about was {random_word}. Better luck next time.")
+            print(f"\nHow does it feel to loose against a machine? The word I was thinking about was {random_word}. Better luck next time.\n")
+            play_again = input("\nPlay again and try another category? (y/n)\n")
+            if play_again.lower() in ("y", "yes", "1"):
+                play_hangman()
+            else:
+                print("Come again.")
 
-    elif ready_to_play == "n":
+    elif ready_to_play.lower() in ("n", "no", "0"):
         print("No worries. Come back when you dare to play.")
 
 
