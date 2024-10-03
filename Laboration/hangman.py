@@ -53,8 +53,8 @@ class HangmanGame:
             return None
 
     def display_state(self):
-        displayed_word = ''.join(letter if letter in self.guessed_letters else '_' for letter in self.random_word)
-        print(f"Current word: {displayed_word}")
+        #displayed_word = ''.join(letter if letter in self.guessed_letters else '_' for letter in self.random_word)
+        #print(f"Current word: {displayed_word}")
         print(f"You have {self.guesses_remaining} guesses remaining.")
         print(f"Guessed letters: {', '.join(self.guessed_letters)}")
         print("___________________________________________________________________________")
