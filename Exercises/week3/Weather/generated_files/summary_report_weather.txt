@@ -1,0 +1,20 @@
+
+Stock Analysis Summary Report
+=============================
+Period: 2023-01-01 00:00:00 to 2023-01-15 00:00:00
+
+Key Statistics:
+-----------------------------
+Overview of statistical metrics:
+                  Mean  Median  1st Quartile (Q1)  3rd Quartile (Q3)  Standard Deviation     Min     Max
+Temperature      33.37    33.5              31.75               35.0                2.28    29.5    37.0
+Humidity         69.87    70.0              68.00               72.0                2.92    65.0    75.0
+Pressure       1014.47  1014.5            1014.00             1014.9                0.65  1013.2  1015.5
+WindSpeed         6.75     6.8               6.25                7.2                0.73     5.5     8.0
+Precipitation     0.21     0.2               0.10                0.3                0.16     0.0     0.5
+
+Prediction Result:
+-----------------------------
+Root Mean Squared Error of predicted temperature: 2.48
+Mean Absolut Error of prediction of predicted temperature: 1.35
+        

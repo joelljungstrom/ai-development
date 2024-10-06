@@ -1,0 +1,35 @@
+'''
+Skapa ett program som använder pandas, numpy och matplotlib för att analysera och visualisera data från en CSV-fil med aktiemarknadsdata. Programmet ska:
+
+1. Läsa in data och förbehandla den (hantera saknade värden, etc.)
+2. Beräkna rullande medelvärden och standardavvikelser
+3. Identifiera trender och anomalier
+4. Skapa visualiseringar som linjediagram, histogram och scatterplots
+5. Spara resultaten i en ny CSV-fil och bilderna som PNG-filer
+'''
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt 
+from datetime import datetime, timedelta
+
+class StockAnalyzer:
+    def __init__(self, csv_file):
+        self.df = self.load_data(csv_file)
+        self.clean_data()
+        self.calculate_additional_values()
+    
+    def load_data(self, csv_file):
+        df = pd.read_csv(csv_file, index_col='Date', parse_dates=True)
+        df.sort_index(inplace=True)
+        return df
+    
+    def clean_data(self):
+        self.df.dropna(inplace=True)
+        self.df.drop_duplicates(inplace=True)
+    
+    def calculate_additional_values(self):
+        self.df['Daily_Return'] = self.df['Close'].pct_change()
+        self.df['MA20'] = self.df['Close'].rolling(window=20).mean()
+        self.df['MA50'] = self.df['Close'].rolling(window=50).mean()
+        

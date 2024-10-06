@@ -1,0 +1,18 @@
+
+Stock Analysis Summary Report
+=============================
+Period: 2023-01-01 00:00:00 to 2023-03-31 00:00:00
+
+Key Statistics:
+-----------------------------
+Average Price: $203.90
+Median Price: $203.62
+Price Standard Deviation: $32.23
+Average Daily Return: 0.60%
+Return Standard Deviation: 0.10%
+
+Strategy Performance:
+-----------------------------
+Cumulative Strategy Return: 100.60%
+Buy and Hold Return: 70.84%
+        
