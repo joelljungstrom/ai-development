@@ -4,22 +4,25 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import tensorflow as tf
 import keras
+import pickle
 from keras import layers, models
 from keras_preprocessing.sequence import pad_sequences
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.linear_model import LinearRegression, LogisticRegression
 from sklearn.metrics import accuracy_score, root_mean_squared_error, r2_score, confusion_matrix, ConfusionMatrixDisplay, classification_report
 from sklearn.datasets import fetch_california_housing, load_breast_cancer, load_iris, make_blobs, load_wine, load_diabetes, fetch_20newsgroups
-from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor, GradientBoostingRegressor
+from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor, GradientBoostingRegressor, VotingClassifier
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.cluster import KMeans
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.tree import plot_tree
 from sklearn.neighbors import kneighbors_graph, KNeighborsClassifier
+from sklearn.neural_network import MLPClassifier
 from sklearn import svm
 from datetime import datetime, timedelta
 from ucimlrepo import fetch_ucirepo
+from flask import Flask, request, jsonify, render_template
 
 
 #######################################################################
@@ -334,4 +337,80 @@ plt.xlabel('Feature Importance')
 plt.title('Feature Importance of Gradient Boosting Model')
 plt.show()
 '''
+#######################################################################
+'''
+# 9 Multi-layer Perceptron (MLP) for classification
+mnist = keras.datasets.mnist
+(X_train, y_train), (X_test, y_test) = mnist.load_data()
 
+X_train = X_train.astype('float32') / 255.0
+X_test = X_test.astype('float32') / 255.0
+X_train = X_train.reshape(X_train.shape[0], -1)
+X_test = X_test.reshape(X_test.shape[0], -1)
+
+mlp = MLPClassifier(
+    hidden_layer_sizes=100,
+    activation='relu',
+    solver='adam'
+)
+
+train = mlp.fit(X_train, y_train)
+
+y_pred = train.predict(X_test)
+
+accuracy = accuracy_score(y_test, y_pred)
+conf_matrix = confusion_matrix(y_test, y_pred)
+class_report = classification_report(y_test, y_pred)
+
+print(f'Accuracy: {accuracy}')
+print('Confusion Matrix:\n', conf_matrix)
+print('Classification Report:\n', class_report)
+'''
+#######################################################################
+'''
+# 10 Ensemble Learning
+iris = load_iris()
+iris_X = pd.DataFrame(data=iris.data, columns=iris.feature_names)
+iris_y = pd.Series(data=iris.target)
+
+X_train, X_test, y_train, y_test = train_test_split(iris_X, iris_y, test_size=0.2, random_state=42)
+
+knn = KNeighborsClassifier(n_neighbors=5)
+knn_train = knn.fit(X_train, y_train)
+
+rf = RandomForestClassifier(n_estimators=100, random_state=42)
+rf.fit(X_train, y_train)
+
+lr = LogisticRegression()
+lr_train = lr.fit(X_train, y_train)
+
+hard_voting = VotingClassifier(estimators=[
+    ('knn', knn),
+    ('lr', lr),
+    ('rf', rf)
+], voting='hard')
+
+hard_voting.fit(X_train, y_train)
+
+soft_voting = VotingClassifier(estimators=[
+    ('knn', knn),
+    ('lr', lr),
+    ('rf', rf)
+], voting='soft')
+
+soft_voting.fit(X_train, y_train)
+
+
+knn_pred = knn.predict(X_test)
+lr_pred = lr.predict(X_test)
+rf_pred = rf.predict(X_test)
+hard_pred = hard_voting.predict(X_test)
+soft_pred = soft_voting.predict(X_test)
+
+print(f"KNN Accuracy: {accuracy_score(y_test, knn_pred)}")
+print(f"Logistic Regression Accuracy: {accuracy_score(y_test, lr_pred)}")
+print(f"Random Forest Accuracy: {accuracy_score(y_test, rf_pred)}")
+print(f"Hard Voting Accuracy: {accuracy_score(y_test, hard_pred)}")
+print(f"Soft Voting Accuracy: {accuracy_score(y_test, soft_pred)}")
+'''
+#######################################################################
