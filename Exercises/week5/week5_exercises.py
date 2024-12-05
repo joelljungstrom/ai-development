@@ -367,7 +367,7 @@ print('Confusion Matrix:\n', conf_matrix)
 print('Classification Report:\n', class_report)
 '''
 #######################################################################
-'''
+
 # 10 Ensemble Learning
 iris = load_iris()
 iris_X = pd.DataFrame(data=iris.data, columns=iris.feature_names)
@@ -407,10 +407,11 @@ rf_pred = rf.predict(X_test)
 hard_pred = hard_voting.predict(X_test)
 soft_pred = soft_voting.predict(X_test)
 
+print(iris_X)
 print(f"KNN Accuracy: {accuracy_score(y_test, knn_pred)}")
 print(f"Logistic Regression Accuracy: {accuracy_score(y_test, lr_pred)}")
 print(f"Random Forest Accuracy: {accuracy_score(y_test, rf_pred)}")
 print(f"Hard Voting Accuracy: {accuracy_score(y_test, hard_pred)}")
 print(f"Soft Voting Accuracy: {accuracy_score(y_test, soft_pred)}")
-'''
+
 #######################################################################
